@@ -1,0 +1,101 @@
+﻿
+@model project1.Models.education
+
+@{
+    ViewBag.Title = "edudetails";
+}
+
+<h2>edudetails</h2>
+
+<div>
+    <h4>education</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.empid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.empid)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Tenth_percentage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tenth_percentage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tenth_yop)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tenth_yop)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Twelfth_percentage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Twelfth_percentage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Twelfth_yop)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Twelfth_yop)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UG_percentage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UG_percentage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UG_yop)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UG_yop)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PG_percentage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PG_percentage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PG_yop)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PG_yop)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.basic.empname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.basic.empname)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit1", new { id = Model.id }) |
+    @*@Html.ActionLink("Delete", "Delete1", new {id=Model.id}) |
+        @Html.ActionLink("Create","education1") |*@
+    @Html.ActionLink("Back to List", "basiclist","Register")
+</p>
+

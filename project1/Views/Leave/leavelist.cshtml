@@ -1,0 +1,71 @@
+﻿@model IEnumerable<project1.Models.leave>
+
+@{
+    ViewBag.Title = "leavelist";
+}
+
+<h2>leavelist</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.empid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.basic.empname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.typeofleave)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.startdate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.enddate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.comments)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ApplyforLeave)
+        </th>
+       
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.empid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.basic.empname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.typeofleave)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.startdate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.enddate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.comments)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ApplyforLeave)
+        </td>
+       
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>*@
+    </tr>
+}
+
+</table>

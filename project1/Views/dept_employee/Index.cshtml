@@ -1,0 +1,19 @@
+﻿@model IEnumerable<project1.Models.basic>
+@using project1.Models;
+
+@{
+    ViewBag.Title = "Index";
+}
+<div>
+    <h2>StudentList</h2>
+    <ul>
+        @foreach (basic st in @Model)
+        {
+            <li>
+                @Html.ActionLink(st.empname, "Details", new { id = st.empid })
+
+            </li>
+        }
+    </ul>
+    @Html.ActionLink("back to branch list", "Index", "department")
+</div>

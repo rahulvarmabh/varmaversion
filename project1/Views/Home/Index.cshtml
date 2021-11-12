@@ -1,0 +1,138 @@
+﻿@model project1.Models.login
+@using CaptchaMvc.HtmlHelpers;
+@using project1.Models;
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/login_layout.cshtml";
+
+}
+
+
+
+<html>
+<head>
+    <style>
+        .form-horizontal {
+            padding-left: 50%;          
+        }
+        .top-left {
+            position: absolute;
+            top: 25px;
+            left: 16px;
+            font-size: xx-large;
+            font: bolder;
+            color: white;
+            font-family: Calibri;
+        }
+        .top-left1 {
+            position: absolute;
+            top: 200px;
+            left: 100px;
+            font-size: xx-large;
+            font: bolder;
+            
+            font-family: Calibri;
+        }
+        .top-left2 {
+            position: absolute;
+            top: 300px;
+            left: 100px;     
+            font-family: Calibri;
+        }
+        .button {
+            background-color: royalblue;
+            
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+        fieldset.scheduler-border {
+            border: 1px groove #ddd !important;
+            padding: 0 1.4em 1.4em 1.4em !important;
+            margin: 0 0 1.5em 0 !important;
+            -webkit-box-shadow: 0px 0px 0px 0px #000;
+            box-shadow: 0px 0px 0px 0px #000;
+        }
+
+        legend.scheduler-border {
+            font-size: 1.2em !important;
+            font-weight: bold !important;
+            text-align: left !important;
+        }
+    </style>
+</head>
+<body style="background-image: url('https://visme.co/blog/wp-content/uploads/2017/07/50-Beautiful-and-Minimalist-Presentation-Backgrounds-01.jpg');background-size:cover;color:white">
+    <img src="https://www.synerscope.com/wp-content/uploads/2019/08/kpmg-logo-vector.png" alt="logo" height="50" width="100" class="top-left" />
+
+    <p class="top-left2" style="color:white">To keep connected with us please login with your personal information.</p>
+    <div class="top-left1"><h1 style="color:royalblue">Welcome Back:)</h1></div><br />
+    @using (Html.BeginForm())
+
+    {
+        @Html.AntiForgeryToken()
+        <fieldset class="scheduler-border">
+            <legend class="scheduler-border"></legend>
+            <div class="form-horizontal">
+                <h2 style="color:dodgerblue;margin-left:180px">LOGIN</h2>
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.emailid, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.emailid, new { htmlAttributes = new { @class = "form-control" ,@placeholder="Email-id"}})
+                        @Html.ValidationMessageFor(model => model.emailid, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.password, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control", @placeholder = "Password" } })
+                        @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-md-10" style="margin-left:120px;color:black">
+                        @Html.Captcha(5)
+                        <p class="Error">@ViewBag.ErrMessage</p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10" style="margin-left: 180px">
+                        <input type="submit" value="Login" class="button" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-10" style="margin-left:780px">
+                    @Html.ActionLink("Forgot Password?", "forgot")
+                    <br />
+                </div>
+            </div>
+            <br />
+            <div class="form-group">
+                <div class="col-md-10" style="margin-left:780px">
+                    @Html.ActionLink("New User? Sign Up", "signup")
+                </div>
+            </div>
+        </fieldset>
+     }
+
+
+
+       
+
+    </body>
+</html>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

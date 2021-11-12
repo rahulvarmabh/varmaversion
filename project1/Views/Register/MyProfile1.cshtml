@@ -1,0 +1,98 @@
+﻿@model project1.Models.basic
+
+@{
+    ViewBag.Title = "MyProfile1";
+}
+
+<h2>MyProfile1</h2>
+
+<div>
+    <h4>basic</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.empname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.empname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.emptype)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.emptype)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dob)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dob)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mobile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mobile)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dateofjoin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateofjoin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gender)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.emp_photo_path)*@
+        </dt>
+
+        <dd>
+            <img src="@Url.Content(Model.emp_photo_path)" width="100" height="100" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.department.dept_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.department.dept_name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.empid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

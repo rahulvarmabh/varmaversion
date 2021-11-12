@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/StyleSheet2.css" rel="stylesheet" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <nav>
+        <label>KPMG</label>
+        <ul>
+            <li><a href="#">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="side-menu">
+        <center>
+            <img src="https://livedoor.sp.blogimg.jp/takeda_cfo/imgs/c/3/c3306d83.jpg" />
+            <br />
+            <h2>>Employee Management Portal</h2>
+        </center>
+        <br />
+        <a href="#"<i class="fa fa-user"></i><span>Employee Registeration form</span></a>
+        <a href="#"<i class="fa fa-search"></i><span>Employee Records</span></a>
+        <a href="#"<i class="fa fa-sellsy"></i><span>Department List</span></a>
+        <a href="#"<i class="fa fa-envelope"></i><span>Salary Details</span></a>
+        <a href="#"<i class="fa fa-user"></i><span>Leave Application</span></a>
+        <a href="#"<i class="fa fa-globe"></i><span>Raise Query</span></a>
+        <a href="#"<i class="Logout"></i><span>Logout</span></a>
+
+    </div>
+    
+    <div class="container-fluid">
+        @RenderBody()
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

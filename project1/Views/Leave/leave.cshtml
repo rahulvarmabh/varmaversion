@@ -1,0 +1,114 @@
+﻿@model project1.Models.leave
+
+@{
+    ViewBag.Title = "leave";
+}
+
+<h2>leave</h2>
+<link href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.4/themes/humanity/jquery-ui.css" rel="stylesheet" />
+
+@section Scripts{
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <link href="~/Content/themes/base/selectable.css" rel="stylesheet" />
+    <script>
+        $(document).ready(function () {
+            $("#startdate").datepicker();
+            $("#enddate").datepicker();
+        })
+    </script>
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>leave</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.empid, "empid", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.empid, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.empid, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.typeofleave, "Type of leave", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("typeofleave", new List<SelectListItem>
+           {new SelectListItem{Text="---Type---",Value="---type---",Selected=true},
+           new SelectListItem{Text="Compensatory leave",Value="Compensatory Leave" },
+            new SelectListItem{Text="Flexible Statuory leave",Value="Flexible Statuory Leave" },
+             new SelectListItem{Text="Annual leave",Value="Annual Leave" },
+              new SelectListItem{Text="Compassionate leave",Value="Compassionate Leave" },
+               new SelectListItem{Text="Emergency Medical leave",Value="Emergency medical Leave" },
+                new SelectListItem{Text="Sick Leave",Value="Sick Leave" },
+                 new SelectListItem{Text="Paternity leave",Value="Paternity Leave" },
+                  new SelectListItem{Text="Maternity leave",Value="Maternity Leave" },
+           });
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.startdate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.startdate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.startdate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.enddate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.enddate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.enddate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.comments, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.comments, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.comments, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.ApplyforLeave, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ApplyforLeave, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ApplyforLeave, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+        <div class="form-group">
+            <label class="control-label col-md-2">
+                Apply for leave?
+            </label>
+            <div class="col-md-10">
+                <label class="checkbox-inline">
+                    @Html.CheckBox("Yes", false)
+                    Yes
+                </label>
+            </div>
+
+
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+
+
+@*@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@

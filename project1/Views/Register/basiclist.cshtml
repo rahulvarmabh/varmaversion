@@ -1,0 +1,107 @@
+﻿@model IEnumerable<project1.Models.basic>
+
+@{
+    ViewBag.Title = "basiclist";
+    Layout = "~/Views/Shared/sidebar.cshtml";
+}
+
+<h2>basiclist</h2>
+
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.empid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.empname)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.emptype)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dob)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mobile)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dateofjoin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.emp_photo_path)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.department.dept_name)
+            </th>*@
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.empid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.empname)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.emptype)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.dob)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.mobile)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.dateofjoin)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.emp_photo_path)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.department.dept_name)
+                </td>*@
+            <td>
+                @*@Html.ActionLink("Edit", "Edit", new { id = item.empid }) |*@
+                @Html.ActionLink("Basic Details", "Details", new { id = item.empid })
+
+                @*@Html.ActionLink("Delete", "Delete", new { id = item.empid })*@
+            </td>
+
+            <td>
+                @Html.ActionLink("Education Details", "edudetails", new { id = item.empid })
+            </td>
+            <td>
+                @Html.ActionLink("Work Experience Details", "workdetails", new { id = item.empid })
+            </td>
+            <td>
+                @Html.ActionLink("Skill Details", "skilldetails", new { id = item.empid })
+            </td>
+        </tr>
+    }
+
+</table>
+

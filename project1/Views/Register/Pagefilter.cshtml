@@ -1,0 +1,82 @@
+﻿@model PagedList.IPagedList<project1.Models.basic>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Pagefilter";
+}
+
+<h2>Pagefilter</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+@using (Html.BeginForm())
+{
+    <p>
+        Find by empname: @Html.TextBox("SearchString")
+        <input type="submit" value="Search" />
+    </p>
+}
+<!--Table with bootstrap class .table and .table-condensed-->
+<table class="table table-condensed">
+    <thead>
+        <tr>
+            
+            <th>@Html.ActionLink("empid", "Pagefilter", new { sortOrder = ViewBag.NameSortParm })</th>
+
+            <th>empname</th>
+            @*<th>emptype</th>
+            <th>dob</th>
+            <th>mobileno</th>
+            <th>salary</th>
+            <th>city</th>
+            <th>gender</th>
+            <th>credit_cardholder</th>
+            <th>deptid</th>*@
+        </tr>
+    </thead>
+    <tbody>
+        <!--Loop through each customer to show it's data-->
+        @foreach (var basic in Model)
+        {
+        <tr>
+            <td>@basic.empid</td>
+            <td>@basic.empname</td>
+            @*<td>@emplist1.address</td>
+        <td>@emplist1.mobileno</td>
+        <td>@emplist1.salary</td>
+        <td>@emplist1.city</td>
+        <td>@emplist1.gender</td>
+        <td>@emplist1.credit_cardholder</td>
+        <td>@emplist1.deptid</td>*@
+            <td>
+                @*@Html.ActionLink("Edit", "Edit", new { id = item.empid }) |*@
+                @Html.ActionLink("Basic Details", "Details", new { id = basic.empid })
+
+                @*@Html.ActionLink("Delete", "Delete", new { id = item.empid })*@
+            </td>
+
+            <td>
+                @Html.ActionLink("Education Details", "edudetails", new { id = basic.empid })
+            </td>
+            <td>
+                @Html.ActionLink("Work Experience Details", "workdetails", new { id = basic.empid })
+            </td>
+            <td>
+                @Html.ActionLink("Skill Details", "skilldetails", new { id = basic.empid })
+            </td>
+        </tr>
+        }
+
+    </tbody>
+</table>
+
+
+
+<br />
+<!--Code to show curent page and page number-->
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Pagefilter",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+

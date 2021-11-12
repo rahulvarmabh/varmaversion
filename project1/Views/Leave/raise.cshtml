@@ -1,0 +1,97 @@
+﻿@model project1.Models.raise
+
+@{
+    ViewBag.Title = "raise";
+}
+
+<h2>raise</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>raise</h4>m
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.empid, "empid", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.empid,new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.empid, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    @*<div class="form-group">
+            @Html.LabelFor(model => model.curloc, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.curloc, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.curloc, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+    <div class="form-group">
+        @Html.LabelFor(model => model.curloc, "Current Location", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("curloc", new List<SelectListItem>
+           {new SelectListItem{Text="---Type---",Value="---type---",Selected=true},
+           new SelectListItem{Text="Base office",Value="Base office" },
+            new SelectListItem{Text="other KGS office",Value="Other KGS office" },
+             new SelectListItem{Text="Work from home",Value="Work from home" },
+              new SelectListItem{Text="Out of country",Value="out of country" },
+               new SelectListItem{Text="Client location",Value="Client location" },
+       });
+        </div>
+    </div>
+
+
+    @*<div class="form-group">
+            @Html.LabelFor(model => model.precontim, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.precontim, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.precontim, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+    <div class="form-group">
+        @Html.LabelFor(model => model.precontim, "Preferred contact timing", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("precontim", new List<SelectListItem>
+                {new SelectListItem{Text="---Type---",Value="---type---",Selected=true},
+                new SelectListItem{Text="any time",Value="Any time" },
+                new SelectListItem{Text="08.00-12.00 hrs",Value="08.00-12.00 hrs" },
+                new SelectListItem{Text="12.00-16.00 hrs",Value="12.00-16.00 hrs" },
+                 new SelectListItem{Text="16.00-20.00 hrs",Value="16.00-20.00 hrs" },
+                  new SelectListItem{Text="20.00-00.00 hrs",Value="20.00-00.00 hrs" },
+                   new SelectListItem{Text="00.00-04.00 hrs",Value="00.00-04.00 hrs" },
+                    new SelectListItem{Text="04.00-08.00 hrs",Value="04.00-08.00 hrs" },
+            });
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.shortdes, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.shortdes, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.shortdes, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.des, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.des, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.des, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

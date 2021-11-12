@@ -1,0 +1,51 @@
+﻿@model project1.Models.work
+
+@{
+    ViewBag.Title = "workdetails";
+}
+
+<h2>workdetails</h2>
+
+<div>
+    <h4>work</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.previous_emp_comp_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.previous_emp_comp_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.year_exp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.year_exp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.work_domain)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.work_domain)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.basic.empname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.basic.empname)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit2", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "basiclist","Register")
+</p>
+

@@ -1,0 +1,43 @@
+﻿@model project1.Models.skill
+
+@{
+    ViewBag.Title = "skilldetails";
+}
+
+<h2>skilldetails</h2>
+
+<div>
+    <h4>skill</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.primary_skills)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.primary_skills)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.other_skills)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.other_skills)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.basic.empname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.basic.empname)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit3", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "basiclist","Register")
+</p>
+
