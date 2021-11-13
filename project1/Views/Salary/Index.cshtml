@@ -6,7 +6,7 @@
 
  }
 <style type="text/css">
-    .gridtable {
+    /*.gridtable {
         font-family: verdana,arial,sans-serif;
         font-size: 11px;
         color: #333333;
@@ -35,11 +35,20 @@
         .gridtable tr.even:hover td.active,
         .gridtable tr.odd:hover td.active {
             background: #b6ff00;
-        }
+        }*/
 
-    table, th, td {
-        border: 1px solid black;
+    table {
+        font-family: Arial, sans-serif;
         border-collapse: collapse;
+        width: 50%;
+    }
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+    tr :nth-child(2n){
+        background-color: #dddddd;
     }
 
     .center {
@@ -54,17 +63,17 @@
 <head style="font-size : 300%">
     <link href="~/varma.css" rel="stylesheet" />
 </head>
-<body>
+<body style="background-color:lightcyan">
     <div class="col-md-6">
         @using (Html.BeginForm("/Index", "Salary", FormMethod.Post))
         {
         <div class="form-group">
-            <label for="name">Empid</label>
+            <label for="name">Employee ID</label>
             <input type="text" class="form-control" id="empid" name="empid" value="@Model.empid" />
             @Html.ValidationMessageFor(model => model.empid, "", new { @class = "text-danger" })
         </div>
         <div class="form-group">
-            <label for="name">Empname</label>
+            <label for="name">Employee Name</label>
             <input type="text" class="form-control" id="empname" name="empname" value="@Model.empname" />
             @Html.ValidationMessageFor(model => model.empname, "", new { @class = "text-danger" })
         </div>

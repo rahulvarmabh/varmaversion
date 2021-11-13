@@ -14,6 +14,14 @@
     text-align:center
 }
 
+.left {
+    float : left;
+}
+
+.clear {
+    clear : both;
+}
+
 /* Clear floats after image containers */
 .row::after {
     content: "";
